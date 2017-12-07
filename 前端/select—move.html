@@ -1,10 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .select_move{
+            margin: 0 auto;
+            width: 206px;
+            height: 140px;
+            background-color: #c0cddf;
+            margin-top: 130px;
+        }
+        .select_move_1{
+            float: left;
+        }
+        .select_move_2{
+            float: left;
+            text-align: center;
+            margin-top: 40px;
+            vertical-align: baseline;
+            /*line-height: 0px;*/
+            padding-top: 10px;
+        }
+        .select_move_3{
+            float: left;
+        }
+    </style>
 </head>
 <body>
+<div class="select_move">
+    
+    <div class="select_move_1">
+
+        <select name="first" id="first" multiple="multiple" size="10">
+              <option value="宝马">宝马</option>
+              <option value="丰田">丰田</option>
+              <option value="奥迪">奥迪</option>
+              <option value="凯迪拉克">凯迪拉克</option>
+              <option value="现代">现代</option>
+              <option value="奔驰">奔驰</option>
+              <option value="法拉利">法拉利</option>
+        </select>
+    </div>
+    <div class="select_move_2">
+        <input type="button" value="--->" onclick="moveRight();"/><br>
+        <input type="button" value="===>" onclick="moveall()"/><br>
+        <input type="button" value="<---"><br>
+        <input type="button" value="<==="><br>
+    </div>
+    <div class="select_move_3">
+        <select name="select3" id="send" size="10" multiple="multiple">
+            <option value="0">长安</option>
+        </select>
+    </div>
+</div>
+<script>
+    function moveRight() {
+        var selE=document.getElementById('first');
+        var selop=selE.getElementsByTagName('option');
+        var len=selop.length;
+        if(!(selE.selectedIndex==-1)){
+            var selE2=document.getElementById('send');
+            for(i=0;i<len;i++){
+                var con=selop[selE.selectedIndex];
+                selE2.appendChild(con);
+                console.log(con)
+            }
+        }else {
+            alert('你还没有选择内容')
+        }
+    }
+    function moveall() {
+        var sele=document.getElementById('first');
+        var selop=sele.getElementsByTagName('option');
+        var len= selop.length;
+        var firop=new Array();
+        for(var k=len-1;k--;){
+            firop.push(selop[k]);
+        }
+        var lens=firop.length;
+        var sele2=document.getElementsByTagName('second');
+        for(var j=lens-1;j>=0;j--;){
+            sele2.appendChild(firop[j]);
+        }
+    }
+
+</script>
 
 </body>
 </html>
