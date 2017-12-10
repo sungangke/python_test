@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .nr{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+<div>
+    <div class="item">
+        <p onclick="foo(this)">菜单一</p>
+        <div class="c1">111111</div>
+    </div>
+    <div class="item">
+        <p onclick="foo(this)">菜单二</p>
+        <div class="c1">111111</div>
+    </div>
+    <div class="item">
+        <p onclick="foo(this)">菜单三</p>
+        <div class="c1">11111111</div>
+    </div>
+</div>
+
+<script>
+    function foo(self) {
+            var eles=document.getElementsByClassName("c1");
+            for (var i=0;i<eles.length;i++){
+                // console.log(eles[i])
+                eles[i].style.display="none";
+            }
+            self.nextElementSibling.style.display="block";
+
+    }
+</script>
+</body>
+</html>

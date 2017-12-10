@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .back{
+            height: 1200px;
+            width:100%;
+            background-color: #c0cddf;
+            z-index: 100;
+        }
+        .shade{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            background-color: black;
+            opacity: 0.4;
+            z-index: 104;
+        }
+        .modele{
+            position: fixed;
+            height: 300px;
+            width: 400px;
+            background-color: white;
+            z-index:105;
+            top:50%;
+            left:50%;
+            margin-left: -200px;
+            margin-top: -150px;
+
+        }
+        .con{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <button onclick="bak()">start</button>
+    </div>
+
+    <div class="shade hide"></div>
+    <div class="modele hide">
+        <div class="con">
+            username:<input type="text">
+            <button>cancle</button>
+        </div>
+    </div>
+
+    <script>
+        function bak() {
+            var els=document.getElementsByClassName('hide')
+            for (var i=0;i<els.length;i++){
+                els[i].classList.remove('hide')
+            }
+
+        };
+    </script>
+</body>
+</html>

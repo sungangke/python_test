@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="select_pro" id="pro">
+    <option value="0">请选择省份</option>
+    <option value="1">河南省</option>
+    <option value="2">湖南省</option>
+    <option value="3">云南省</option>
+</select>
+
+<select name="select_city" id="city">
+    <option value="0">请选择城市</option>
+</select>
+
+<script>
+    var info={"河南省":["郑州","洛阳","开封"],"湖南省":["湘潭","长沙","岳阳"],"云南省":["大理","昆明"]}
+    var els_pro=document.getElementsByName('select_pro')[0];
+    var els_city=document.getElementsByName('select_city')[0];
+    els_pro.onchange=function () {
+        var els_arrs=els_pro.children;
+//        console.log(els_arrs)
+//        console.log(this.selectedIndex)
+        var provice=els_arrs[this.selectedIndex].innerText;
+//        console.log(provice)
+        var citys=info[provice];
+        var els_city_city=els_city.children;
+        els_city.options.length=0;
+        for (i=0;i<citys.length;i++){
+            var opt=document.createElement('option');
+            opt.innerText=citys[i];
+            els_city.appendChild(opt);
+        }
+    }
+</script>
+
+</body>
+</html>

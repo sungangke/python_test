@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var ret;
+        function foce() {
+            var cur_time = new Date();
+            var s_time = cur_time.toLocaleString();
+            var temp = document.getElementById('t1');
+            temp.value = s_time;
+
+        }
+        function started() {
+            ret = setInterval(foce, 1000);
+        }
+
+        function stoptime() {
+            clearInterval(ret);
+//            document.getElementById('t1').value = 'hello';
+
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" id="t1" name="n1"  onfocus="started()">
+<button onclick="stoptime()">stop</button>
+
+</body>
+</html>
